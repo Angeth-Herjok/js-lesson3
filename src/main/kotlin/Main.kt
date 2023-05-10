@@ -14,12 +14,14 @@ fun main() {
     var s=studentNames("John","James","Joy")
     println(Arrays.toString(s))
 
-    val car=
+    val cars=
         listOf(
             Car("KDG",2345.50),
-            Car("KDG",2345.50),
-            Car("KDG",2345.50),
+            Car("KCZ",2105.50),
+            Car("KDU",2005.50),
         )
+   val avgMileage=averageMileage(cars)
+    println(avgMileage)
 }
 //1. Create one function that is given the below array:
 //var numbers = arrayOf(32, 17,4,213,78,43,90,31,3,73,11,158,62)
@@ -54,3 +56,10 @@ fun studentNames(name1:String,name2:String,name3: String):Array<String>{
 //4. Write a function that takes in a list of Car objects each with a
 //registration and mileage attribute and returns the average mileage of all the vehicles in the list.
 data class Car(var registration:String,var mileage:Double)
+fun averageMileage(cars: List<Car>): Double {
+    var sum = 0.0
+    for (car in cars) {
+        sum += car.mileage
+    }
+    return sum / cars.size
+}
